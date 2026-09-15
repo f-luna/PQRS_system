@@ -1,0 +1,59 @@
+/.phpunit.cache
+/.phpunit.result.cache
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.backup
+.env.production
+.env.staging
+.env.local
+
+# Dependencies
+/node_modules
+/vendor
+
+# Build artifacts
+/public/build
+/public/hot
+/public/storage
+/public/fonts-manifest.dev.json
+
+# Storage
+/storage/*.key
+/storage/pail
+
+# IDE / Editors
+/.cursor/
+/.idea
+/.nova
+/.vscode
+/.zed
+/.codex
+.phpactor.json
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# Auth
+/auth.json
+
+# OS
+Homestead.json
+Homestead.yaml
+
+# Laravel
+bootstrap/cache/*.php
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+
+# npm
+npm-debug.log
+yarn-error.log
+
+# Claude Code
+.claude/settings.local.json
