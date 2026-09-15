@@ -56,4 +56,6 @@ npm-debug.log
 yarn-error.log
 
 # Claude Code
-.claude/settings.local.json
+.claude/
+CLAUDE.md
+AGENTS.md

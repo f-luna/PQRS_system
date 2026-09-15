@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\PqrsController;
 use Illuminate\Support\Facades\Route;
 
 // Auth pública
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 // Rutas protegidas con Sanctum

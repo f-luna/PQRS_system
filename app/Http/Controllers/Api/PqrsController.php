@@ -55,7 +55,7 @@ class PqrsController extends Controller
 
         $radicado = 'PQRS-'.now()->format('Ymd').'-'.strtoupper(Str::random(5));
 
-        $fechaLimite = Carbon::now()->addBusinessDays(15);
+        $fechaLimite = Carbon::now()->addBusinessDays(20);
 
         $pqrs = Pqrs::create([
             'numero_radicado' => $radicado,
@@ -215,8 +215,18 @@ class PqrsController extends Controller
         ]);
     }
 
-    public function historial(Pqrs $pqrs): JsonResponse
+    public function historial(Request $request, Pqrs $pqrs): JsonResponse
     {
+        $user = $request->user();
+
+        if ($user->role === 'cliente' && $pqrs->cliente_id !== $user->id) {
+            return response()->json(['message' => 'No autorizado.'], 403);
+        }
+
+        if ($user->role === 'agente' && $pqrs->agente_id !== $user->id) {
+            return response()->json(['message' => 'No autorizado.'], 403);
+        }
+
         $historial = $pqrs->historial()->with('usuario')->latest('created_at')->get();
 
         return PqrsHistorialResource::collection($historial)->response();
